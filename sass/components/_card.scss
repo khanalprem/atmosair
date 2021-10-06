@@ -1,0 +1,136 @@
+.naxa-card {
+    position: relative;
+    @include display-flex(flex);
+    @include flex-direction-column(column);
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: $white-color;
+    background-clip: border-box;
+
+    @include radius(5px);
+
+    .card-footer {
+        padding: 1rem;
+        padding-top: 0;
+    }
+
+    .naxa-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1.25rem;
+
+        @media #{$breakpoint-md-desktop} {
+            padding: 1rem;
+        }
+
+        &.pd-0 {
+            padding: 0;
+        }
+    }
+
+    &.no-boxshadow {
+        box-shadow: none;
+    }
+
+    &.is-transparent {
+        background-color: transparent;
+    }
+
+    &.no-border {
+        border: none;
+    }
+}
+
+.card-header,
+.card-footer {
+    @include display-flex(flex);
+    @include align-items-center;
+    padding: 1.25rem;
+    padding-bottom: 0;
+    width: 100%;
+
+    &.is-start {
+        @include justify-content-start;
+
+        h5 {
+            flex-grow: initial;
+        }
+    }
+
+    &.is-center {
+        @include justify-content-center;
+
+        h5 {
+            @include justify-content-center;
+            @include align-items-center;
+        }
+    }
+
+    &.is-end {
+        @include justify-content-end;
+    }
+
+    &.is-between {
+        @include justify-content-between;
+    }
+
+    &.is-clear {
+        border: 0;
+        background-color: transparent;
+    }
+
+    &.pd-0 {
+        padding: 0;
+    }
+
+    h5 {
+        font-size: 1.1rem;
+        flex-grow: 1;
+        margin: 0;
+        font-weight: 400;
+        text-transform: uppercase;
+
+        span {
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+
+        @media #{$breakpoint-lg-desktop} {
+            font-size: .875rem;
+        }
+
+        @media #{$breakpoint-desktop} {
+            font-size: .75rem;
+        }
+
+    }
+
+    .custom-select {
+        max-width: 140px;
+        margin-left: .6125rem;
+
+        p {
+            height: 2.5rem;
+            line-height: 2.5rem;
+
+            span {
+                @include trim(1);
+            }
+
+            @media #{$breakpoint-lg-desktop} {
+                height: 2rem;
+                line-height: 2rem;
+            }
+
+            @media #{$breakpoint-desktop} {
+                height: 1.5rem;
+                line-height: 1.5rem;
+            }
+        }
+    }
+
+    @media #{$breakpoint-xs} {
+        @include flex-wrap(wrap);
+        @include justify-content-start;
+    }
+}

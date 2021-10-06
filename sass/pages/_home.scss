@@ -1,0 +1,665 @@
+.site-content {
+    @include display-flex(flex);
+    @include justify-content-start;
+    @include align-items-stretch;
+    height: 100vh;
+    width: 100%;
+
+    .bind-header {
+        h5 {
+            font-size: .875rem;
+            font-weight: 400;
+
+            @media #{$breakpoint-desktop} {
+                font-size: .775rem;
+            }
+        }
+    }
+
+    main {
+        &.site-main {
+            width: 100%;
+
+            .site-main-in {
+                @include display-flex(flex);
+                @include justify-content-start;
+                @include align-items-stretch;
+                width: 100%;
+                height: 100%;
+
+                &.map-site-main-in {
+                    height: calc(100% - 72px);
+
+                    @media #{$breakpoint-lg-desktop} {
+                        height: calc(100% - 52px);
+                    }
+
+                    @media #{$breakpoint-desktop} {
+                        height: calc(100% - 42px);
+                    }
+                }
+
+
+                .projects {
+                    max-height: 100% !important;
+                    padding: 1.25rem 0;
+
+                    @media #{$breakpoint-desktop} {
+                        padding: 1rem;
+                    }
+
+
+                }
+
+                .project-list {
+                    padding: 0;
+                    padding: .5rem 1.25rem;
+                    @include radius(10px);
+                    // padding: .5rem .6125rem;
+                    color: $heading-color;
+                    @include transition(all .4s ease-in-out);
+                    @include display-flex(flex);
+                    @include justify-content-start;
+
+                    figure {
+                        @include flex(0 0 50px);
+                        max-width: 50px;
+                        max-height: 50px;
+                        margin: 0;
+                        overflow: hidden;
+                        position: relative;
+                        background: $border-dark;
+                        @include radius(10px);
+
+
+
+                        img {
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center center;
+                            opacity: 1;
+                            @include radius(10px);
+                        }
+                    }
+
+                    &:not(:last-child) {
+                        margin-bottom: 1rem;
+                    }
+
+                    .project-content {
+                        flex-grow: 1;
+                        padding: 0 .75rem;
+
+                        @media #{$breakpoint-lg-desktop} {
+                            padding: 0 .625rem;
+                        }
+
+                        @media #{$breakpoint-desktop} {
+                            padding: 0 .525rem;
+                        }
+                    }
+
+                    .project-header {
+                        position: relative;
+                        padding-right: 1.5rem;
+
+
+                        h4 {
+                            margin-top: .2rem;
+                            font-size: .875rem;
+                            font-weight: 600;
+                            @include trim(1);
+
+                            @media #{$breakpoint-lg-desktop} {
+                                font-size: .725rem;
+                            }
+
+                            @media #{$breakpoint-desktop} {
+                                font-size: .585rem;
+                            }
+
+                            a {
+                                color: $heading-color;
+                                text-transform: capitalize;
+                            }
+                        }
+
+                        .project-meta {
+                            margin-top: .5rem;
+
+                            @media #{$breakpoint-desktop} {
+                                font-size: .25rem;
+                            }
+
+                            ul {
+                                @include display-flex(flex);
+                                @include justify-content-start;
+                                @include align-items-center;
+                            }
+
+                            li {
+                                font-size: .75rem;
+                                color: $body-color;
+
+                                a {
+                                    &.common-button {
+                                        padding: 2px 12px;
+                                        text-transform: uppercase;
+                                        min-width: initial;
+                                        min-height: initial;
+                                        font-size: .75rem;
+                                        border: 1px solid $border-color;
+                                    }
+                                }
+
+                                &:not(:last-child) {
+                                    margin-right: .6125rem;
+                                }
+
+                                @media #{$breakpoint-lg-desktop} {
+                                    font-size: .625rem;
+
+                                    a {
+                                        &.common-button {
+                                            padding: 0px 8px;
+                                            font-size: .625rem;
+                                        }
+                                    }
+                                }
+
+                                @media #{$breakpoint-desktop} {
+                                    font-size: .525rem;
+
+                                    a {
+                                        &.common-button {
+                                            font-size: .525rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .custom-dropdown {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+
+                            img {
+                                width: 18px;
+
+                                @media #{$breakpoint-lg-desktop} {
+                                    width: 14px;
+                                }
+
+                                @media #{$breakpoint-desktop} {
+                                    width: 12px;
+                                }
+                            }
+
+                            li {
+                                margin: 0;
+                                border-radius: 0;
+                                border: none;
+
+                                a {
+                                    font-size: .875rem;
+                                }
+
+                                &:not(:last-child) {
+                                    border-bottom: 1px solid $border-color;
+                                }
+                            }
+                        }
+                    }
+
+                    &.project-detail-list {
+                        margin-top: 1rem;
+
+                        figure {
+                            @include flex(0 0 70px);
+                            max-width: 70px;
+                            max-height: 70px;
+                        }
+
+                        .project-header {
+
+                            h4 {
+                                font-size: 1.3rem;
+                                color: $secondary-color;
+                                text-transform: capitalize;
+
+                                @media #{$breakpoint-lg-desktop} {
+                                    font-size: 1.1rem;
+                                }
+
+                                @media #{$breakpoint-desktop} {
+                                    font-size: .875rem;
+                                }
+                            }
+                        }
+                    }
+
+                    &.is-active {
+                        background-color: $primary-light;
+                        border: .5px solid $primary-color;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: $primary-light;
+
+                        figure {
+                            .overlay {
+                                bottom: 0;
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+
+                aside {
+                    background: $white-color;
+                    border-right: 1px solid $border-color;
+
+                    &.sidebar {
+                        @include flex(0 0 300px);
+                        max-width: 300px;
+
+                        .naxa-card {
+                            height: 100%;
+
+                            .naxa-body {
+                                padding: 1rem;
+
+                                &.pd-0 {
+                                    padding: 0;
+                                }
+                            }
+                        }
+
+                        .card-header {
+                            @media #{$breakpoint-lg-desktop} {
+                                padding-top: .6125rem;
+                            }
+
+                            h5 {
+                                text-transform: capitalize;
+                                font-size: 1.5rem;
+                            }
+                        }
+
+                        .project-details {
+
+                            figure {
+                                margin-top: 1rem;
+                                @include radius(10px);
+                                text-align: center;
+
+                                img {
+                                    @include radius(10px);
+                                }
+                            }
+
+                            .project-header {
+                                position: relative;
+
+                                h6 {
+
+                                    text-transform: uppercase;
+                                    font-size: .625rem;
+                                    font-weight: 400;
+
+                                    @media #{$breakpoint-lg-desktop} {
+                                        font-size: .625rem;
+                                    }
+
+                                    @media #{$breakpoint-desktop} {
+                                        font-size: .525rem;
+                                    }
+
+                                    a {
+                                        color: $secondary-color;
+                                    }
+                                }
+
+                                h3 {
+                                    font-size: 1rem;
+                                    margin: 10px 0 20px;
+
+                                    a {
+                                        color: $heading-color;
+                                    }
+
+                                    @media #{$breakpoint-lg-desktop} {
+                                        font-size: .875rem;
+                                        margin: 5px 0 10px;
+                                    }
+
+                                }
+
+                                h4 {
+                                    margin-top: .2rem;
+                                    font-size: .875rem;
+                                    font-weight: 400;
+
+                                    a {
+                                        color: $heading-color;
+                                    }
+                                }
+
+                                .project-meta {
+                                    margin-top: .5rem;
+
+                                    ul {
+                                        @include display-flex(flex);
+                                        @include justify-content-start;
+                                        @include align-items-center;
+                                    }
+
+                                    li {
+                                        border: none;
+                                        margin-bottom: 0;
+                                        font-size: .875rem;
+
+                                        a {
+                                            &.common-button {
+                                                padding: 3px 15px;
+                                                text-transform: uppercase;
+                                                min-width: initial;
+                                                min-height: initial;
+                                                font-size: .875rem;
+                                            }
+                                        }
+
+                                        &:not(:last-child) {
+                                            margin-right: .6125rem;
+                                        }
+                                    }
+                                }
+
+                                .custom-dropdown {
+                                    position: absolute;
+                                    right: 0;
+                                    top: 0;
+
+                                    li {
+                                        margin: 0;
+                                        border-radius: 0;
+                                        border: none;
+
+                                        a {
+                                            font-size: .875rem;
+                                        }
+
+                                        &:not(:last-child) {
+                                            border-bottom: 1px solid $border-color;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .project-footer {
+                                @include display-flex(flex);
+                                @include justify-content-between;
+                                @include align-items-center;
+                                margin-top: 1rem;
+
+                                ul {
+                                    @include display-flex(flex);
+                                    @include align-items-center;
+
+                                    li {
+                                        border: none;
+                                        margin-bottom: 0;
+
+                                        a {
+                                            span.svg-icon {
+                                                margin-right: .6125rem;
+                                            }
+                                        }
+
+                                        span.svg-icon {
+                                            font-size: 1.2rem;
+
+
+                                            img {
+                                                @include transform(scale(.85));
+                                                max-width: 16px;
+                                                max-height: 18px;
+
+                                                @media #{$breakpoint-lg-desktop} {
+                                                    @include transform(scale(.75));
+                                                }
+
+                                                @media #{$breakpoint-desktop} {
+                                                    @include transform(scale(.65));
+                                                }
+                                            }
+                                        }
+
+                                        &:first-child {
+                                            margin-right: .5rem;
+
+                                            a {
+                                                span.svg-icon {
+                                                    margin-right: .25rem;
+                                                }
+                                            }
+
+                                        }
+                                    }
+
+                                    &.is-start {
+                                        @include justify-content-start;
+                                    }
+
+                                    &.is-end {
+                                        @include justify-content-end;
+                                    }
+                                }
+
+                                a {
+                                    &.common-button {
+                                        &.is-border {
+                                            color: $primary-color;
+                                            padding: 5px;
+                                            min-width: initial;
+                                            min-height: initial;
+                                            font-size: .775rem;
+
+                                            img {
+                                                max-width: 18px;
+                                                max-height: 18px;
+                                            }
+
+                                            span.svg-icon {
+                                                border: none;
+                                                margin-left: .5rem;
+                                                margin-right: 0;
+                                            }
+
+                                            &:hover {
+                                                background-color: transparent;
+                                                color: $primary-color;
+                                                border-color: $primary-color;
+                                            }
+
+                                            @media #{$breakpoint-lg-desktop} {
+
+                                                font-size: .675rem;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                .site-main-card {
+                    flex-grow: 1;
+                    height: 100%;
+
+                    .cloud-schedule {
+                        padding: 2rem;
+
+                        .weather-status {
+                            p {
+                                text-transform: capitalize;
+                                margin-bottom: .5rem;
+                            }
+
+
+
+                            .is-signal {
+                                font-weight: 700;
+
+                                &.is-go {
+                                    color: $green-color;
+                                }
+
+                                &.no-go {
+                                    color: $red-color;
+                                }
+                            }
+                        }
+
+                        span {
+                            &.is-status {
+
+                                width: 14px;
+                                height: 14px;
+                                @include radius(100%);
+                                background-color: $border-color;
+                                cursor: pointer;
+
+                                &.is-normal {
+                                    background-color: $orange-color;
+                                }
+
+                                &.is-clean {
+                                    background-color: $green-color;
+                                }
+
+                                &.is-danger {
+                                    background-color: $red-color;
+                                }
+
+                                &:not(:last-child) {
+                                    margin: .35rem;
+                                }
+                            }
+
+                        }
+
+                        .naxa-card {
+                            border: 1px solid $border-color;
+
+                            .is-header {
+                                padding: 1rem;
+                                background-color: $bg-color;
+
+                                .is-flex {
+                                    time {
+                                        font-weight: 600;
+                                        color: $secondary-color;
+                                        font-size: 1rem;
+                                    }
+
+                                    span {
+                                        margin: 0 .5rem;
+                                    }
+
+                                    p {
+                                        margin-bottom: .5rem;
+                                    }
+                                }
+                            }
+
+
+                            &:not(:last-child) {
+                                margin-bottom: 2rem;
+                            }
+
+                            &.no-border {
+                                border: none;
+                            }
+
+                            &:hover {
+                                @include box-shadow(0 0 40px $shadow-color);
+                            }
+                        }
+
+                        .flight-altitude {
+                            .altitude-header {
+                                margin-bottom: 2rem;
+
+                                p {
+                                    margin-bottom: .5rem;
+                                }
+
+                                b {
+                                    color: $secondary-color;
+                                    font-size: 1rem;
+                                }
+
+                                .altitude-status {
+                                    span {
+                                        display: inline-block;
+                                        -webkit-font-smoothing: antialiased;
+                                        font-size: .875rem;
+                                        font-weight: 600;
+                                        text-decoration: none;
+                                        text-transform: capitalize;
+                                        padding: .5rem 1rem;
+                                        background-color: rgba($green-color, .1);
+                                        color: $green-color;
+                                        @include radius(24px);
+                                        min-width: 100px;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+
+                            .is-flex {
+                                &.is-altitude {
+                                    margin-bottom: 2rem;
+
+                                    .is-icon {
+                                        margin-right: .775rem;
+                                    }
+
+                                    p {
+                                        margin-bottom: .5rem;
+                                    }
+
+                                    b {
+                                        color: $secondary-color;
+                                        margin-right: .5rem;
+                                        font-size: 1rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                .map-card {
+                    @include flex(0 0 500px);
+                    max-width: 500px;
+
+                    #map {
+                        height: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+}

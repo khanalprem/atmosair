@@ -1,0 +1,115 @@
+.center-height{
+    @include display-flex(flex);
+    @include align-items-center;
+    @include justify-content-center;
+}
+.upload-container{
+    margin-top: 2rem;
+    height: calc(100% - 8vh);
+    @media #{$breakpoint-lg-desktop}{
+        margin-top: 1rem;
+    }
+    @media #{$breakpoint-pt}{
+        height: auto;
+    }
+    .upload-card{
+        height: 100%;
+        .card-header{
+            h5{
+                text-transform: initial;
+            }
+        }
+        .naxa-card{
+            box-shadow: none;
+            // height: calc(100% - 7vh);
+            @media #{$breakpoint-pt}{
+                height: auto;
+            }
+            .naxa-body{
+                border: 1px solid $border-color;
+                @include radius(10px);
+            }
+            .upload-row{
+                height: 100%;
+                .left-list{
+                    padding: 1.5rem 0;
+                    .list{
+                        li{
+                            padding: 1rem 3rem;
+                            @media #{$breakpoint-lg-desktop}{
+                                padding: 1rem 2rem;
+                            }
+                            @media #{$breakpoint-desktop}{
+                                padding: .875rem 1.5rem;
+                            }
+                            &.active{
+                                background: $primary-light;
+                                .custom-radio {
+                                    label{
+                                        color: $primary-color;
+                                        &::before{
+                                            content: 'radio_button_checked';
+                                            color: $primary-color;
+                                        }
+                                    }
+                                }
+                            }
+                            &.checked{
+                               .custom-radio{
+                                    input{
+                                        &:checked + label {
+                                            color: $heading-color;
+                                        }
+                                    }
+                               }
+                            }
+                            .custom-radio{
+                                margin-bottom: 0;
+                                label{
+                                    color: $border-dark;
+                                    font-weight: 600;
+                                }
+                                input:checked {
+                                    & + label {
+                                       color: $primary-color;
+                                    }
+                                }   
+                            }    
+                        }
+                    }
+                }
+                .upload-form{
+                    position: relative;
+                    // height: calc(100% - 50px);
+                    @media #{$breakpoint-pt}{
+                        height: auto;
+                        overflow-x: none;
+                    }
+                }
+                form{
+                    
+                    
+                    .form-group{
+                        span.unit{
+                            display: block;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+                // .buttons{
+                //     background: $white-color;
+                //     width: 100%;
+                //     position: absolute;
+                //     bottom: 0.5rem;
+                //     right: 0rem;
+                //     padding: 0 2rem .5rem;
+                //     @media #{$breakpoint-pt}{
+                //         position: relative;
+                //         bottom: 0;
+                //         padding:  1rem 0 2rem;
+                //     }
+                // }
+            }
+        }
+    }
+}

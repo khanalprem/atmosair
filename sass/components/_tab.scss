@@ -1,0 +1,183 @@
+.custom-tab {
+
+    .custom-tab-content {
+        padding: .6125rem;
+
+        .tab-item {
+            display: none;
+            @include animation(opacity .7s ease-in-out);
+
+            &.current {
+                display: block;
+            }
+        }
+    }
+}
+
+.tab-wrapper {
+    @include radius(24px);
+    border: 1px solid $border-color;
+    background-color: $white-color;
+    display: inline-block;
+}
+
+.tab-list {
+    @include display-flex(flex);
+    @include justify-content-start;
+    @include align-items-center;
+    @include flex-wrap(wrap);
+    margin: 0;
+
+    li {
+
+        a {
+            display: block;
+            text-transform: capitalize;
+            padding: .325rem 1rem;
+            color: $body-color;
+            font-weight: 600;
+            position: relative;
+            @include transition(all .5s linear);
+            border: 1px solid transparent;
+            color: $body-light;
+            cursor: pointer;
+            @media #{$breakpoint-lg-desktop}{
+                padding: .25rem .875rem;
+            }
+            @media #{$breakpoint-desktop}{
+                min-height: 28px;
+                height: 28px;
+            }
+            span {
+                &.counter {
+                    padding: 0 6px;
+                    @include radius(50%);
+                    background-color: $primary-color;
+                    color: $white-color;
+                    font-weight: 500;
+                    margin-left: .5rem;
+                }
+            }
+
+        }
+
+        &:not(:last-child) {
+            margin-right: .6125rem;
+        }
+
+    }
+
+    &.is-bg {
+        li {
+            a {
+                background-color: $white-color;
+                @include radius(24px);
+
+                &.current,
+                &:hover {
+                    color: $white-color;
+                    background-color: $primary-color;
+                    border-color: $primary-color;
+                    img{
+                        -webkit-filter: brightness(100);
+                        filter: brightness(100);
+                        // filter: brightness(0) contrast(0) hue-rotate(-360deg) saturate(0) sepia(1); 
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-border {
+        li {
+            a {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    left: 0;
+                    bottom: 0;
+                    height: 2px;
+                    background-color: $primary-color;
+                    @include transition(width .3s linear);
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+
+            &.current {
+                a {
+                    color: $heading-color;
+
+                    &::after {
+                        width: 100%;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+
+            &:hover {
+                a {
+                    color: $heading-color;
+                }
+            }
+        }
+    }
+
+    &.is-full-border {
+
+        li {
+            @include transition(all .5s ease-in-out);
+            text-align: center;
+
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+
+            &:hover,
+            &.active {
+                background-color: $primary-light;
+                border-color: $primary-color;
+                color: $primary-color;
+            }
+        }
+
+        &.is-3 {
+            li {
+                @include flex(0 0 33.33333%);
+                max-width: 33.33333%;
+            }
+        }
+
+        &.is-4 {
+            li {
+                @include flex(0 0 25%);
+                max-width: 25%;
+
+            }
+        }
+    }
+
+    &.is-icon {
+        a {
+            @include display-flex(flex);
+            @include justify-content-start;
+            @include align-items-center;
+
+            i,span.svg-icon {
+                margin-right: 8px;
+                img{    
+                    // filter: brightness(0) contrast(0) hue-rotate(-360deg) saturate(3) ;                    @include transition(all .5s ease-in-out);
+                    transform: scale(.9);
+                    @media #{$breakpoint-lg-desktop}{
+                        transform: scale(.7);
+                    }
+                    @media #{$breakpoint-desktop}{
+                        transform: scale(.6);
+                    }
+                }
+            }
+        }
+    }
+}

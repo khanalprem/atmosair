@@ -1,0 +1,148 @@
+
+.horizontal-nav{
+    @include flex(0 0 80px);
+    max-width: 80px;
+    background-color: $bg-color;
+    border-right: 1px solid $border-color;
+    height: 100%;
+    @media #{$breakpoint-desktop}{
+        @include flex(0 0 55px);
+        max-width: 55px;
+    }
+    .site-logo{
+        display: block;
+        text-align: center;
+        min-height: 72px;
+        @include display-flex(flex);
+        @include justify-content-center;
+        @include align-items-center;
+        @include flex-direction-column(column);
+        border-bottom: 1px solid $border-color;
+        img{
+            width: 40px;
+        }
+        @media #{$breakpoint-lg-desktop}{
+            min-height: 51px;
+            img{
+             width: 30px;
+            }
+        }
+        @media #{$breakpoint-desktop}{
+            min-height: 42px;
+            img{
+             width: 25px;
+            }
+        }
+       
+    }
+}
+.nav-wrapper{
+    @include display-flex(flex);
+    @include justify-content-between;
+    @include align-items-center;
+    @include flex-direction-column(column);
+    height: calc(100vh - 90px);
+    padding:1.5rem 0;
+    @media #{$breakpoint-lg-desktop}{
+        height: calc(100vh - 60px);
+    }
+   
+    ul{
+        li{
+            text-align: center;
+            a{
+                color:$body-color;
+                font-weight: 600;
+                text-align: center;
+                padding:1.2rem .6125rem;
+                display: block;
+                span.svg-icon{
+                    margin-bottom: .75rem;
+                    display: inline-block;
+                    width: 22px;
+                }
+                @media #{$breakpoint-lg-desktop}{
+                    span.svg-icon{
+                        margin-bottom: .25rem;
+                        width: 16px;
+                    }
+                }
+                @media #{$breakpoint-desktop}{
+                    padding: .75rem .5rem;
+                    span.svg-icon{width: 14px;}
+                }
+                span{
+                    text-transform: capitalize;
+                    display: block;
+                    font-size: .785rem;
+                    @media #{$breakpoint-lg-desktop}{
+                        font-size: .685rem;
+                    }
+                    @media #{$breakpoint-desktop}{
+                        font-size: .525rem;
+                    }
+
+                }
+            }
+            &.is-active{
+                a{
+                    color:$primary-color;
+                }
+            }
+            &:disabled,&.is-disable{
+                a{
+                    color:$border-dark;
+                    
+                }
+            }
+        }
+    }
+    .nav-bottom{
+        ul{
+            li{
+                &:last-child{
+                    margin-top: 5px;
+                    a{
+                        background-color: $white-color;
+                        border-color: $border-color;
+                    }
+                }
+                a{
+                    @include display-flex(flex);
+                    @include justify-content-center;
+                    @include align-items-center;
+                    @include flex-direction-column(column);
+                    height: 50px;
+                    width:50px;
+                    background-color: transparent;
+                    border:1px solid transparent;
+                    @include radius(50%);
+                    span.svg-icon{ margin:0;  }
+                    &.userlink{
+                        padding: 0;
+                        span.svg-icon{
+                            @include radius(50%);
+                            border: 2px solid $primary-color;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    &:hover{
+                        background-color: $white-color;
+                        border-color: $border-color;
+                    }
+                    @media #{$breakpoint-lg-desktop}{
+                        width: 40px;
+                        height: 40px;
+                    }
+                    @media #{$breakpoint-desktop}{
+                        width: 30px;
+                        height: 30px;
+                        padding: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,31 @@
+.is-overflow {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    height: 100%;
+  
+    &::-webkit-scrollbar {
+        width: 6px;
+        background: transparent;
+        @include radius(4px);
+        @media #{$breakpoint-desktop}{
+            width: 4px;
+          }
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        @include radius(4px);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @include radius(4px);
+        background: lighten($border-dark, 5%);
+    }
+
+    &.no-scrollbar{
+        &::-webkit-scrollbar {
+            width:0;
+        }
+    }
+}

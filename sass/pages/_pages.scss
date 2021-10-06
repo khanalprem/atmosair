@@ -1,0 +1,18 @@
+@import "login";
+@import "home";
+@import "error";
+@import "upload";
+@import "landing";
+.page-header {
+    margin-bottom: 1rem;
+    h1 {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        @media #{$breakpoint-desktop} {
+            font-size: 1.1rem;
+        }
+    }
+    &.is-center {
+        text-align: center;
+    }
+}

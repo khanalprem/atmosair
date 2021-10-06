@@ -1,0 +1,471 @@
+.popup,
+.window-popup {
+    background-color: $body-color;
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include display-flex(flex);
+    @include justify-content-center;
+    @include align-items-center;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(all .5s ease-in-out);
+    &.is-transparency{
+        background-color: rgba($heading-color, .8);
+    }
+    .popup-container {
+        @include display-flex(flex);
+        @include flex-direction-row(row);
+        @include justify-content-around;
+        margin: 2rem;
+
+        .popup-body {
+            max-width: 768px;
+            width: 100%;
+            min-width: 768px;
+            max-height: calc(100vh - 32px);
+            @include radius(10px);
+            box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+            @include display-flex(flex);
+            @include flex-direction-column(column);
+            flex-grow: 0;
+            flex-shrink: 0;
+            background-color: $white-color;
+            position: relative;
+            @include transform(scale(0));
+            @include transition(all .9s ease-in-out);
+
+            @media #{$breakpoint-desktop} {
+                max-width: 576px;
+                min-width: 576px;
+            }
+
+            @media #{$breakpoint-sm} {
+                max-width: 360px;
+                min-width: 360px;
+            }
+
+            @media #{$breakpoint-xs} {
+                max-width: 280px;
+                min-width: 280px;
+            }
+
+            span {
+                &.close-icon {
+                    border: 0;
+                    &:hover {
+                        color: $red-color;
+                    }
+                }
+            }
+            p{
+                font-size: .785rem;
+                font-style: normal;
+                @media #{$breakpoint-lg-desktop}{
+                    font-size: .685rem;
+                }
+                &.para-separator {
+                    text-transform: uppercase;
+                    margin-bottom: 2rem;
+                    @media #{$breakpoint-lg-desktop}{
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+            .popup-header {
+                @include display-flex(flex);
+                @include justify-content-between;
+                @include align-items-center;
+                flex-shrink: 0;
+                margin: 0;
+                padding: 0 1.5rem;
+                padding-top: 1.5rem;
+
+                // border-bottom: 1px solid $border-color;
+                h3 {
+                    font-size: 1.25rem;
+                    line-height: 2rem;
+                    font-weight: 600;
+                    letter-spacing: 0.0125em;
+                    text-transform: capitalize;
+                }
+
+                &.no-flex {
+                    display: initial;
+                }
+            }
+
+            .popup-content {
+                -webkit-box-flex: 1;
+                flex-grow: 1;
+                margin: 0;
+                padding: 1.5rem;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+
+                // max-height: calc(100vh - 250px);
+                // height: 100vh;
+                @media #{$breakpoint-ls} {
+                    padding: 1rem;
+                }
+
+
+                &::-webkit-scrollbar {
+                    width: 4px;
+                    background: $border-color;
+                    @include radius(4px);
+                }
+
+                &::-webkit-scrollbar-track {
+                    background-color: $border-color;
+                    @include radius(4px);
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    @include radius(4px);
+                    background: $border-dark;
+                }
+
+                .custom-tab {
+                    .tab-list {
+                        li {
+                            a {
+                                font-size: .8rem;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            .popup-footer {
+
+                @include display-flex(flex);
+                position: relative;
+                flex-shrink: 0;
+                @include flex-wrap(wrap);
+                @include justify-content-center;
+                @include align-items-center;
+                min-height: 50px;
+                margin: 0;
+                padding: 1rem 1rem 2rem 1rem;
+                // border-top: 1px solid $border-color;
+            }
+        }
+
+        &.sm-popup {
+            .popup-body {
+                max-width: 576px;
+                min-width: 576px;
+
+                @media #{$breakpoint-desktop} {
+                    max-width: 480px;
+                    min-width: 480px;
+                }
+
+                @media #{$breakpoint-sm} {
+                    max-width: 300px;
+                    min-width: 300px;
+                }
+
+                @media #{$breakpoint-xs} {
+                    max-width: 280px;
+                    min-width: 280px;
+                }
+            }
+        }
+
+        &.lg-popup {
+            .popup-body {
+                position: relative;
+                max-width: 991px;
+                width: 100%;
+                min-width: 991px;
+
+                span {
+                    &.close-icon {
+                        right: 1rem;
+                        top: 1rem;
+                        i{
+                            font-size: 20px;
+                        }
+                        @media #{$breakpoint-desktop}{
+                            i{font-size: 16px;}
+                            right: .5rem;
+                            top: .5rem;
+                        }
+                    }
+                }
+                @media #{$breakpoint-lg-desktop} {
+                    max-width: 850px;
+                    min-width: 850px;
+                }
+                @media #{$breakpoint-desktop} {
+                    max-width: 750px;
+                    min-width: 750px;
+                }
+
+                @media #{$breakpoint-pt} {
+                    max-width: 576px;
+                    min-width: 576px;
+                    padding: 1rem;
+
+                }
+
+                @media #{$breakpoint-sm} {
+                    max-width: 360px;
+                    min-width: 360px;
+                }
+
+                @media #{$breakpoint-xs} {
+                    max-width: 300px;
+                    min-width: 300px;
+                }
+            }
+
+        }
+
+        &.xl-popup {
+            .popup-body {
+                position: relative;
+                max-width: 1200px;
+                width: 100%;
+                min-width: 1200px;
+
+                span {
+                    &.close-icon {
+                        right: 2rem;
+                        top: 2rem;
+                    }
+                }
+
+                @media #{$breakpoint-desktop} {
+                    max-width: 991px;
+                    min-width: 991px;
+                    padding: 1.5rem;
+
+                    span {
+                        &.close-icon {
+                            right: 1.5rem;
+                            top: 1.5rem;
+                        }
+                    }
+                }
+
+                @media #{$breakpoint-ls} {
+                    max-width: 768px;
+                    min-width: 768px;
+                    padding: 1rem;
+
+                    span {
+                        &.close-icon {
+                            right: 1rem;
+                            top: 1rem;
+                        }
+                    }
+                }
+
+                @media #{$breakpoint-pt} {
+                    max-width: 576px;
+                    min-width: 576px;
+                    padding: 1rem;
+
+                    span {
+                        &.close-icon {
+                            right: 1rem;
+                            top: 1rem;
+                        }
+                    }
+                }
+
+                @media #{$breakpoint-sm} {
+                    max-width: 360px;
+                    min-width: 360px;
+                }
+
+                @media #{$breakpoint-xs} {
+                    max-width: 300px;
+                    min-width: 300px;
+                }
+            }
+
+        }
+
+        &.sign-popup {
+            .popup-body {
+                padding: 0;
+
+                .popup-content {
+                    padding: 0;
+
+                    .sigin-row {
+                        @include display-flex(flex);
+                        @include justify-content-start;
+                        @include align-items-stretch;
+                        @media #{$breakpoint-pt}{
+                            @include flex-direction-column(column);
+                        }
+                        figure {
+                            border-top-left-radius: 10px;
+                            border-bottom-left-radius: 10px;
+                            @include flex(0 0 400px);
+                            position: relative;
+                            margin: 0;
+                            overflow: hidden;
+                            position: relative;
+                            padding-top: 35.566%;
+                            max-width: 400px;
+                            @media #{$breakpoint-lg-desktop}{
+                                @include flex(0 0 320px);
+                                max-width: 320px;
+                            }
+                            @media #{$breakpoint-desktop}{
+                                @include flex(0 0 270px);
+                                max-width: 270px;
+                            }
+                            @media #{$breakpoint-pt}{
+                                @include flex(0 0 100%);
+                                max-width: 100%;
+                                width: 100%;
+                                border-top-right-radius: 10px;
+                                border-bottom-left-radius: 0;
+                            }
+                            img {
+                                position: absolute;
+                                top: 0px;
+                                left: 0px;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                object-position: center center;
+                                opacity: 1;
+                            }
+                        }
+
+                        .signin-content {
+                            flex-grow: 1;
+                            padding:1.5rem 2.5rem;
+                            @media #{$breakpoint-desktop}{
+                                padding: 1rem 1.5rem;
+                            }
+                            @media #{$breakpoint-pt}{
+                                @include display-flex(flex);
+                                @include align-items-center;
+                                @include justify-content-center;
+                                @include flex-direction-column(column);
+                                text-align: center;
+                            }
+                            form{
+                                .form-group {
+                                    label{
+                                        font-size: .875rem;
+                                    }
+                                    @media #{$breakpoint-lg-desktop}{
+                                        label{
+                                             font-size: .685rem;
+                                        }
+                                    }
+                                }
+                            }
+                            .signin-header{
+                                padding: 2rem 0;
+                                @media #{$breakpoint-lg-desktop}{
+                                    padding: 1rem 0 1.5rem;
+                                }
+                                h2{
+                                    font-size: 1.3rem;
+                                    margin-bottom: 1rem;
+                                    text-transform: capitalize;
+                                    @media #{$breakpoint-lg-desktop}{
+                                        font-size: .938rem;
+                                        margin-bottom: 0.5rem;
+                                    }
+                                }
+                                p{
+                                    a{
+                                        font-weight: 600;
+                                        color:$primary-color;
+                                    }
+                                }
+                            }
+                            .signin-buttons{
+                                margin-bottom: 2rem;
+                                @media #{$breakpoint-lg-desktop}{
+                                    margin-bottom: 1rem;
+                                }
+                                a{
+                                    max-width: 260px;
+                                    @include justify-content-center;
+                                    font-size: .785rem;
+                                    text-align: center;
+                                    @media #{$breakpoint-lg-desktop}{
+                                        font-size: .685rem;
+                                        max-width: 200px;
+                                    }
+                                    &:hover{
+                                        background: none;
+                                        color: $primary-color;
+                                    }
+                                    &:not(:last-child){
+                                        margin-bottom: .6125rem;
+                                    }
+                                }
+                            }
+                            .or{
+                                text-transform: uppercase;
+                            }
+                            .common-button{
+                                &.signin-button{
+                                    min-width: 180px;
+                                    width: 240px;
+                                    text-align: center;
+                                    @include display-flex(flex);
+                                    @media #{$breakpoint-lg-desktop}{
+                                        width: 180px;
+                                    }
+                                }
+                            }
+                            .forgot-password{
+                                a{
+                                    font-weight: 600;
+                                        color:$primary-color;
+                                }
+                            }
+                            .signin-footer{
+                                margin-top: 3rem;
+                                @media #{$breakpoint-desktop}{
+                                    margin-top: 2rem;
+                                }
+                                a{
+                                    font-weight: 600;
+                                        color:$primary-color;
+                                        margin-left: .5rem;
+                                        text-transform: capitalize;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.open {
+        z-index: 1011;
+        opacity: 1;
+        visibility: visible;
+
+        .popup-container {
+            .popup-body {
+                @include transform(scale(1));
+                filter: alpha(opacity=100);
+            }
+        }
+
+    }
+}
