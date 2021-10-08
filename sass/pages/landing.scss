@@ -23,6 +23,15 @@
             }
         }
     }
+    &.is-light {
+        ul {
+            li {
+                a {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
 }
 
 .toggle-button {
@@ -207,11 +216,14 @@
         justify-content: center;
         h2 {
             color: $white-color;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             line-height: 1.5;
             @media #{$breakpoint-md} {
                 font-size: 2rem;
             }
+        }
+        img {
+            max-width: 150px;
         }
     }
     img.banner-bg {
@@ -223,6 +235,24 @@
         object-fit: cover;
         object-position: center center;
         z-index: 1;
+    }
+    figure {
+        position: relative;
+        z-index: 2;
+    }
+    &.is-light {
+        .banner-content {
+            color: $body-color;
+            h2 {
+                color: $secondary-color;
+                line-height: 1.2;
+            }
+            .banner-text-list {
+                img {
+                    max-width: 24px;
+                }
+            }
+        }
     }
 }
 

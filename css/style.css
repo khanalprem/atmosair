@@ -10405,6 +10405,9 @@ a.back-page .svg-icon img {
 .landing-header .common-button.is-border:hover {
   background-color: transparent;
 }
+.landing-header.is-light ul li a {
+  color: #00b8e0;
+}
 
 .toggle-button {
   position: relative;
@@ -10598,13 +10601,16 @@ a.back-page .svg-icon img {
 }
 .landing-banner .banner-content h2 {
   color: #ffffff;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   line-height: 1.5;
 }
 @media only screen and (max-width:767px) {
   .landing-banner .banner-content h2 {
     font-size: 2rem;
   }
+}
+.landing-banner .banner-content img {
+  max-width: 150px;
 }
 .landing-banner img.banner-bg {
   position: absolute;
@@ -10615,6 +10621,20 @@ a.back-page .svg-icon img {
   object-fit: cover;
   object-position: center center;
   z-index: 1;
+}
+.landing-banner figure {
+  position: relative;
+  z-index: 2;
+}
+.landing-banner.is-light .banner-content {
+  color: #757575;
+}
+.landing-banner.is-light .banner-content h2 {
+  color: #0A5D6B;
+  line-height: 1.2;
+}
+.landing-banner.is-light .banner-content .banner-text-list img {
+  max-width: 24px;
 }
 
 .white-card {
