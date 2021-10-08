@@ -23,7 +23,8 @@
             }
         }
     }
-    &.is-light {
+    &.is-light,
+    &.is-bg-white {
         ul {
             li {
                 a {

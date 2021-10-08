@@ -10405,7 +10405,7 @@ a.back-page .svg-icon img {
 .landing-header .common-button.is-border:hover {
   background-color: transparent;
 }
-.landing-header.is-light ul li a {
+.landing-header.is-light ul li a, .landing-header.is-bg-white ul li a {
   color: #00b8e0;
 }
 

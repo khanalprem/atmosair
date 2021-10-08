@@ -138,6 +138,21 @@
         });
     });
 
+    function stickyMenu() {
+        $(window).scroll(function(event) {
+            var scroll = $(window).scrollTop();
+
+            if (scroll > 130) {
+                $('.landing-header').addClass('is-bg-white');
+            } else {
+                $('.landing-header').removeClass('is-bg-white');
+            }
+
+        });
+
+    }
+    stickyMenu();
+
 
     function smoothScroll() {
         $(' .scroll-arrow').on(
