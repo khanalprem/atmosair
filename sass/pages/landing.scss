@@ -11,6 +11,10 @@
                 color: $white-color;
                 padding: .5rem 1rem;
                 font-weight: 600;
+                @include transition(all .5s ease-in-out);
+                &:hover {
+                    color: $primary-color;
+                }
             }
         }
     }
@@ -19,7 +23,7 @@
             color: $primary-color;
             border-color: $primary-color;
             &:hover {
-                background-color: transparent;
+                background-color: white;
             }
         }
     }
@@ -89,7 +93,7 @@
     }
 }
 
-@media screen and(max-width:1024px) {
+@media #{$breakpoint-md} {
     .toggle-button {
         display: block;
         margin-left: 1rem;
@@ -100,12 +104,13 @@
         max-width: 280px;
         padding: 15px;
         width: 100%;
-        background-color: $secondary-color;
+        background-color: $primary-light;
         z-index: 999;
         top: 0;
         right: -100%;
         left: auto;
         bottom: 0;
+        @include transition (all .5 ease-in-out);
         ul {
             display: block;
             li {
@@ -118,14 +123,9 @@
             }
         }
     }
-}
-
-@media screen and(max-width:1024px) {
     .Is-toggle {
-        .site-header {
-            .main-navigation {
-                right: 0;
-            }
+        .main-navigation {
+            right: 0;
         }
     }
 }
@@ -185,7 +185,7 @@
         }
         .common-button {
             margin: 0;
-            min-width: 120px;
+            min-width: 130px;
             i {
                 margin-right: 0;
                 padding: 0.25rem 0.6125rem;
@@ -220,7 +220,7 @@
             font-size: 2.2rem;
             line-height: 1.5;
             @media #{$breakpoint-md} {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
         img {
@@ -253,6 +253,12 @@
                     max-width: 24px;
                 }
             }
+        }
+    }
+    @media #{$breakpoint-lg} {
+        .banner-content {
+            height: initial;
+            margin-top: 5rem;
         }
     }
 }
@@ -525,7 +531,7 @@
         }
         .common-button {
             margin: 0;
-            min-width: 120px;
+            min-width: 130px;
             background-color: $secondary-color;
             i {
                 margin-right: 0;

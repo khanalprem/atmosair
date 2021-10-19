@@ -12,10 +12,24 @@
         $profileMainHeight = $('.profile-details-card').height() + 15,
         $siteMainHeight = $('.site-main-card').height() + 220;
 
-    $('.landing-banner .banner-content').css({
-        'max-height': $bannerHeight,
-        'min-height': $bannerHeight,
-    });
+
+
+
+    function bannerHeight() {
+        if (windowSize <= 767) {
+            $('.landing-banner .banner-content').css({
+                'max-height': 'auto',
+                'min-height': "auto",
+            });
+        } else {
+            $('.landing-banner .banner-content').css({
+                'max-height': $bannerHeight,
+                'min-height': $bannerHeight,
+            });
+        }
+    }
+    bannerHeight();
+
     $('.sidebar .projects').css('max-height', $projectListHeight - 20);
     $('.sidebar .project-details').css({
         'max-height': $siteMainHeight,
@@ -64,6 +78,16 @@
         });
     }
     selectToggle();
+
+
+    /*==================================
+   Toggle Button
+ ==================================*/
+    $('.toggle-button').on('click', function(e) {
+        e.preventDefault();
+        $('body').toggleClass('Is-toggle');
+        $(this).toggleClass('is-active');
+    });
 
     function customDropdown() {
         $('.custom-dropdown').on('click', function(e) {
