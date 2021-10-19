@@ -15,20 +15,7 @@
 
 
 
-    function bannerHeight() {
-        if (windowSize <= 767) {
-            $('.landing-banner .banner-content').css({
-                'max-height': 'auto',
-                'min-height': "auto",
-            });
-        } else {
-            $('.landing-banner .banner-content').css({
-                'max-height': $bannerHeight,
-                'min-height': $bannerHeight,
-            });
-        }
-    }
-    bannerHeight();
+
 
     $('.sidebar .projects').css('max-height', $projectListHeight - 20);
     $('.sidebar .project-details').css({
@@ -177,6 +164,20 @@
     }
     stickyMenu();
 
+    function bannerHeight() {
+        if ($(window).width() <= 767) {
+            $('.landing-banner .banner-content').css({
+                'max-height': 'auto',
+                'min-height': "auto",
+            });
+        } else {
+            $('.landing-banner .banner-content').css({
+                'max-height': $bannerHeight,
+                'min-height': $bannerHeight,
+            });
+        }
+    }
+    bannerHeight();
 
     function smoothScroll() {
         $(' .scroll-arrow').on(
