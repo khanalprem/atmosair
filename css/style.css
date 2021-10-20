@@ -10833,6 +10833,10 @@ a.back-page .svg-icon img {
   color: #4CD084;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .newsletter {
   position: relative;
   color: #ffffff;
