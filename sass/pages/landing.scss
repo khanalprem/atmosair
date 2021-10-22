@@ -87,6 +87,13 @@
     }
 }
 
+section {
+    padding: 5rem 0;
+    @media #{$breakpoint-lg} {
+        padding: 3rem 0;
+    }
+}
+
 @media screen and(max-width:1024px) {
     a.logo {
         margin-bottom: .25rem;
@@ -185,7 +192,7 @@
         }
         .common-button {
             margin: 0;
-            min-width: 130px;
+            min-width: 140px;
             i {
                 margin-right: 0;
                 padding: 0.25rem 0.6125rem;
@@ -265,7 +272,7 @@
 
 .white-card {
     background-color: $white-color;
-    padding: 1rem;
+    padding: 1.5rem;
     @include radius(10px);
     width: 100%;
     &.is-boxshadow {
@@ -297,6 +304,29 @@
 
 .weather-condition {
     position: relative;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    @media only screen and (max-device-width: 1366px) {
+        background-attachment: scroll !important;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, .5);
+    }
+    .section-title {
+        margin-bottom: 2.5rem;
+        h3 {
+            color: $white-color;
+        }
+    }
     .weather-container {
         position: relative;
         z-index: 2;
@@ -388,6 +418,10 @@
     }
     figure {
         margin: 0;
+        &.mr--50 {
+            margin-left: -50px;
+            margin-top: 50px;
+        }
         &.is-boxshadow {
             img {
                 @include box-shadow(0 30px 70px 0px rgba(#000000, .2));
@@ -448,6 +482,7 @@
 }
 
 .howto {
+    padding-top: 0;
     .howto-wrapper {
         @include box-shadow(0 30px 70px 0px rgba(#000000, .2));
         padding: 0 1.5rem 1.5rem 1.5rem;
@@ -478,6 +513,7 @@
 .newsletter {
     position: relative;
     color: $white-color;
+    padding: 5rem 0;
     h3 {
         color: $white-color;
     }
@@ -535,7 +571,7 @@
         }
         .common-button {
             margin: 0;
-            min-width: 130px;
+            min-width: 140px;
             background-color: $secondary-color;
             i {
                 margin-right: 0;
@@ -611,6 +647,9 @@
 
 .site-footer {
     position: relative;
+    .address {
+        padding-right: 3rem;
+    }
     &::after {
         position: absolute;
         content: '';
@@ -618,10 +657,10 @@
         top: 0;
         bottom: 0;
         height: 100%;
-        width: 36%;
+        width: 39%;
         z-index: 1;
         background-color: $bg-color;
-        @media #{$breakpoint-sm} {
+        @media #{$breakpoint-lg} {
             display: none;
         }
     }
