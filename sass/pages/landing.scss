@@ -304,12 +304,26 @@ section {
 
 .weather-condition {
     position: relative;
-    background-attachment: fixed !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
+    // background-attachment: fixed !important;
+    // background-position: center !important;
+    // background-repeat: no-repeat !important;
+    // background-size: cover !important;
     @media only screen and (max-device-width: 1366px) {
         background-attachment: scroll !important;
+    }
+    .weather-gif {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        -webkit-filter: blur(7px);
+        -moz-filter: blur(7px);
+        -o-filter: blur(7px);
+        -ms-filter: blur(7px);
+        filter: blur(7px);
     }
     &::after {
         content: '';
@@ -411,6 +425,7 @@ section {
         opacity: .2;
         position: absolute;
         top: 0;
+        left: 0;
         z-index: 1;
         img {
             max-height: 105px;
@@ -418,6 +433,21 @@ section {
     }
     figure {
         margin: 0;
+        .mobile-frame-cover {
+            max-width: 320px;
+            margin: 0 auto;
+            position: relative;
+            .mobile-frame-image {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                padding: 8px;
+                @include radius(30px);
+            }
+        }
         &.mr--50 {
             margin-left: -50px;
             margin-top: 50px;
@@ -456,27 +486,32 @@ section {
         width: calc(100% - 100px);
         top: 0;
         bottom: 0;
+        left: 0;
         @include radius(10px);
         background-color: $primary-light;
         @media #{$breakpoint-lg} {
             width: calc(100% - 30px);
         }
     }
-    &:nth-child(even) {
-        .cloud-figure {
-            left: 0;
-        }
-        &::before {
-            left: 0;
-        }
-    }
-    &:nth-child(odd) {
+    &.mobile-frame-list {
         .cloud-figure {
             right: 0;
-        }
-        &::before {
+            top: 25%;
             left: auto;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            top: 25%;
+            bottom: 25%;
             right: 0;
+            left: auto;
+            @include radius(10px);
+            background-color: $primary-light;
+            @media #{$breakpoint-lg} {
+                width: calc(100% - 30px);
+            }
         }
     }
 }
@@ -544,6 +579,11 @@ section {
         top: 0;
         bottom: 0;
         background-color: rgba($primary-color, .8);
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);
     }
     .custom-form-group {
         background-color: $white-color;
@@ -584,7 +624,25 @@ section {
 
 .wind-list {
     &:not(:last-child) {
-        margin-bottom: 3rem;
+        margin-bottom: 5rem;
+        .content {
+            padding-left: 1.5rem;
+            @media #{$breakpoint-lg} {
+                padding: 0;
+            }
+        }
+    }
+    &:not(:first-child) {
+        .content {
+            padding-right: 1.5rem;
+            @media #{$breakpoint-lg} {
+                padding: 0;
+            }
+        }
+    }
+    figure {
+        margin: 0;
+        margin-top: -15px;
     }
     h4 {
         color: $secondary-color;
@@ -614,7 +672,7 @@ section {
             }
         }
     }
-    @media #{$breakpoint-md} {
+    @media #{$breakpoint-lg} {
         .wind-figure {
             order: 0;
         }

@@ -10677,15 +10677,25 @@ section {
 
 .weather-condition {
   position: relative;
-  background-attachment: fixed !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
 }
 @media only screen and (max-device-width: 1366px) {
   .weather-condition {
     background-attachment: scroll !important;
   }
+}
+.weather-condition .weather-gif {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  -webkit-filter: blur(7px);
+  -moz-filter: blur(7px);
+  -o-filter: blur(7px);
+  -ms-filter: blur(7px);
+  filter: blur(7px);
 }
 .weather-condition::after {
   content: "";
@@ -10764,6 +10774,7 @@ section {
   opacity: 0.2;
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 1;
 }
 .solution-list .cloud-figure img {
@@ -10771,6 +10782,24 @@ section {
 }
 .solution-list figure {
   margin: 0;
+}
+.solution-list figure .mobile-frame-cover {
+  max-width: 320px;
+  margin: 0 auto;
+  position: relative;
+}
+.solution-list figure .mobile-frame-cover .mobile-frame-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  border-radius: 30px;
 }
 .solution-list figure.mr--50 {
   margin-left: -50px;
@@ -10808,6 +10837,7 @@ section {
   width: calc(100% - 100px);
   top: 0;
   bottom: 0;
+  left: 0;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -10819,18 +10849,29 @@ section {
     width: calc(100% - 30px);
   }
 }
-.solution-list:nth-child(even) .cloud-figure {
-  left: 0;
-}
-.solution-list:nth-child(even)::before {
-  left: 0;
-}
-.solution-list:nth-child(odd) .cloud-figure {
+.solution-list.mobile-frame-list .cloud-figure {
   right: 0;
-}
-.solution-list:nth-child(odd)::before {
+  top: 25%;
   left: auto;
+}
+.solution-list.mobile-frame-list::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 25%;
+  bottom: 25%;
   right: 0;
+  left: auto;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #e1f6fd;
+}
+@media only screen and (max-width:991px) {
+  .solution-list.mobile-frame-list::before {
+    width: calc(100% - 30px);
+  }
 }
 
 .howto {
@@ -10890,6 +10931,11 @@ section {
   top: 0;
   bottom: 0;
   background-color: rgba(0, 184, 224, 0.8);
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  filter: blur(4px);
 }
 .newsletter .custom-form-group {
   background-color: #ffffff;
@@ -10934,7 +10980,27 @@ section {
 }
 
 .wind-list:not(:last-child) {
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
+}
+.wind-list:not(:last-child) .content {
+  padding-left: 1.5rem;
+}
+@media only screen and (max-width:991px) {
+  .wind-list:not(:last-child) .content {
+    padding: 0;
+  }
+}
+.wind-list:not(:first-child) .content {
+  padding-right: 1.5rem;
+}
+@media only screen and (max-width:991px) {
+  .wind-list:not(:first-child) .content {
+    padding: 0;
+  }
+}
+.wind-list figure {
+  margin: 0;
+  margin-top: -15px;
 }
 .wind-list h4 {
   color: #0A5D6B;
@@ -10954,7 +11020,7 @@ section {
   font-size: 1.1rem;
   color: #4CD084;
 }
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:991px) {
   .wind-list .wind-figure {
     order: 0;
   }
