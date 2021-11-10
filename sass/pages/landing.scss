@@ -579,11 +579,6 @@ section {
         top: 0;
         bottom: 0;
         background-color: rgba($primary-color, .8);
-        -webkit-filter: blur(4px);
-        -moz-filter: blur(4px);
-        -o-filter: blur(4px);
-        -ms-filter: blur(4px);
-        filter: blur(4px);
     }
     .custom-form-group {
         background-color: $white-color;

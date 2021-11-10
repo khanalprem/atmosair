@@ -10931,11 +10931,6 @@ section {
   top: 0;
   bottom: 0;
   background-color: rgba(0, 184, 224, 0.8);
-  -webkit-filter: blur(4px);
-  -moz-filter: blur(4px);
-  -o-filter: blur(4px);
-  -ms-filter: blur(4px);
-  filter: blur(4px);
 }
 .newsletter .custom-form-group {
   background-color: #ffffff;
