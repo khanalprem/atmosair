@@ -10788,18 +10788,26 @@ section {
   margin: 0 auto;
   position: relative;
 }
+.solution-list figure .mobile-frame-cover .mobile-mockup {
+  -webkit-box-shadow: -10px 30px 70px rgba(33, 33, 33, 0.1);
+  box-shadow: -10px 30px 70px rgba(33, 33, 33, 0.1);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  border-radius: 30px;
+}
 .solution-list figure .mobile-frame-cover .mobile-frame-image {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  height: 100%;
-  padding: 8px;
+  padding: 10px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   border-radius: 30px;
+  width: 100%;
+  height: 100%;
 }
 .solution-list figure.mr--50 {
   margin-left: -50px;
